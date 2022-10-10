@@ -55,8 +55,7 @@ ROOT_URLCONF = 'jcproyectointermedio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [r'C:\Users\Juan Carlos Diaz\Desktop\jcintermedio\templates'],
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
