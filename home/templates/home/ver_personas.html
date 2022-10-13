@@ -1,17 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'home/base.html' %}
+
+{% block title_pagina %}
+<title>Ver personas</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %}
     <h1>Ver personas</h1>
     {% for persona in personas %}
     <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
-    {% endfor %}    
+    {% endfor %}  
+{% endblock h1_texto_header %}
+
     
+ {% comment %} {% extends 'home/index.html' %}
+
+
+ {% block title_pagina %}
+ <title>Ver personas</title>
+ {% endblock title_pagina %}
  
-</body>
-</html>
+ {% block h1_texto_header %}
+ Ver personas
+ {% endblock h1_texto_header %}
+ 
+ {% block index_contenido1 %}
+ <a class="navbar-brand" href={% url 'crear_persona' %}>Crear Persona</a>
+ <p>Listado de personas:</p>
+ 
+ <form action={% url 'ver_personas' %} method="GET">
+     {{formulario}}
+     <button>Buscar</button>
+ </form>
+ <p>
+     {% if personas %}
+ 
+         {% for persona in personas %}
+             <li>{{persona.nombre}} {{persona.apellido}} {{persona.edad}}</li>
+         {% endfor %}
+ 
+     {% else %}
+         <p>No se encontraron resultados.</p>
+     {% endif %}
+ 
+ </p>
+ {% endblock index_contenido1 %} {% endcomment %}
